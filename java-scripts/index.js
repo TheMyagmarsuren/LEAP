@@ -194,22 +194,22 @@
 
 // //   arga-1
 
-// // let minNumber = Math.min(a, b, c, d);
-// // console.log(minNumber);
+// let minNumber = Math.min(a, b, c, d);
+// console.log(minNumber);
 
-// // arga -2
+// arga -2
 
-// // if (a <= b && a <= c && a <= d) {
-// //   console.log("hamgiin baga utga " + a);
-// // } else if (b <= a && b <= c && b <= d) {
-// //   console.log("hamgiin baga utga " + b);
-// // } else if (c <= a && c <= b && c <= d) {
-// //   console.log("hamgiin baga utga " + c);
-// // } else {
-// //   console.log("hamgiin baga utga " + d);
-// // }
+// if (a <= b && a <= c && a <= d) {
+//   console.log("hamgiin baga utga " + a);
+// } else if (b <= a && b <= c && b <= d) {
+//   console.log("hamgiin baga utga " + b);
+// } else if (c <= a && c <= b && c <= d) {
+//   console.log("hamgiin baga utga " + c);
+// } else {
+//   console.log("hamgiin baga utga " + d);
+// }
 
-// // 2 bagiin dundaj oloh
+// 2 bagiin dundaj oloh
 
 // let oneA = 100;
 // twoA = 100;
@@ -228,3 +228,121 @@
 // } else {
 //   console.log("ylagch bhgui");
 // }
+
+// garaas awah dewsgert
+// 5000 , 10000, 20000
+
+// hariult dewsgert;
+// 50,100,500,1000,5000,10000;
+
+// ajillagaa
+// 1. awah zuilee songono
+// 2. mongoo hiine
+// 2.1 awah devsgertuudees oor mongo awahgui
+// 2.2 awah ymnaas baga mongo awahgui
+// 3. hariult bodno
+// 3.1 Hariulah niit dung bodno
+//3.2 Ymar2 devsgert tgd hden sh uguhig bodno. (Nemelt)
+let tawi;
+let zuut;
+let tawanZuut;
+let Amynga;
+let mynga;
+let tawMynga;
+let price;
+let hariult;
+let shirheg;
+let orsonMongo;
+let tawZuu;
+
+let awahZuil = window.prompt(
+  "Awah zuiliin urd toon utganaas songono uu\n1: = cola = 1200togrog\n2: = sprite = 1500togrog\n3: = alpenGold = 2000togrog\n4: = suu = 2200togrog\n5: = talh = 1000togrog\n6: = zairmag = 500togrog\n7: = bohi = 150togrog\n8: = arhi = 15000togrog"
+);
+let hiisenMongo = window.prompt(
+  "Zowhon doorh utgaar mongon dewsgert oruulna uu\n1 = 5000\n2 = 10000\n3 = 20000"
+);
+
+switch (awahZuil) {
+  case "1":
+    price = 1200;
+    break;
+  case "2":
+    price = 1500;
+    break;
+  case "3":
+    price = 2000;
+    break;
+  case "4":
+    price = 2200;
+    break;
+  case "5":
+    price = 1000;
+    break;
+  case "6":
+    price = 500;
+    break;
+  case "7":
+    price = 150;
+    break;
+  case "8":
+    price = 15000;
+    break;
+  default:
+    console.log("Tiim baraa bhgui");
+}
+switch (hiisenMongo) {
+  case "5000":
+    orsonMongo = 5000;
+    break;
+  case "10000":
+    orsonMongo = 10000;
+    break;
+  case "20000":
+    orsonMongo = 20000;
+    break;
+}
+if (hiisenMongo <= price) {
+  console.log("awah zuileesee ih uniin dun oruulna uu");
+} else {
+  hariult = hiisenMongo - price;
+}
+Amynga = parseInt(hariult / 10000);
+tawMynga = parseInt((hariult % 10000) / 1000);
+mynga = parseInt((hariult % 10000) / 1000);
+tawanZuut = parseInt((hariult % 1000) / 100);
+tawi = parseInt((hariult % 100) / 10);
+if (tawanZuut >= 5) {
+  tawZuu = 1;
+}
+if (tawanZuut >= 1) {
+  zuut = tawanZuut - 5;
+}
+if (tawMynga >= 1) {
+  mynga = tawMynga - 5;
+}
+if (tawMynga >= 5) {
+  tawMynga = 1;
+}
+
+if (tawi >= 5) {
+  tawi = 1;
+}
+let niit = Amynga + tawMynga + mynga + tawZuu + tawanZuut + tawi;
+console.log(
+  Amynga +
+    "Arwan myngat dewsgert  " +
+    tawMynga +
+    " Tawan myngat " +
+    mynga +
+    " Myngan dewsgert " +
+    tawZuu +
+    " shirheg tawan zuut " +
+    zuut +
+    " zuut iim shirher " +
+    tawi +
+    " shirheg tawi dewsgert " +
+    " iim shirheg togrog hariulaw " +
+    niit +
+    " " +
+    hariult
+);
