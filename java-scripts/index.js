@@ -256,10 +256,10 @@ let orsonMongo;
 let tawZuu;
 
 let awahZuil = window.prompt(
-  "Awah zuiliin urd toon utganaas songono uu\n1: = cola = 1200togrog\n2: = sprite = 1500togrog\n3: = alpenGold = 2000togrog\n4: = suu = 2200togrog\n5: = talh = 1000togrog\n6: = zairmag = 500togrog\n7: = bohi = 150togrog\n8: = arhi = 15000togrog"
+  "Авах барааны урд байгаа тоон утгийг оруулан бараагаа сонгоно уу!\n1: cola = 1200 төгрөг\n2: sprite = 1500 төгрөг\n3: lpenGold = 2000 төгрөг\n4: suu = 2200 төгрөг\n5: alh = 1000 төгрөг\n6: airmag = 500 төгрөг\n7: bohi = 150 төгрөг\n8: arhi = 15000 төгрөг"
 );
 let hiisenMongo = window.prompt(
-  "Zowhon doorh utgaar mongon dewsgert oruulna uu\n1 = 5000\n2 = 10000\n3 = 20000"
+  "Зөвхөн доорх мөнгөн дэвсгэртээс сонгон оруулна уу!\n5000\n10000\n20000"
 );
 
 switch (awahZuil) {
@@ -288,7 +288,7 @@ switch (awahZuil) {
     price = 15000;
     break;
   default:
-    console.log("Tiim baraa bhgui");
+    console.log("Тийм бараа байхгүй байна!");
 }
 switch (hiisenMongo) {
   case "5000":
@@ -302,7 +302,7 @@ switch (hiisenMongo) {
     break;
 }
 if (hiisenMongo <= price) {
-  console.log("awah zuileesee ih uniin dun oruulna uu");
+  console.log("Мөнгө хүрсэнгүй! Авах зүйлээс их үнийн дүн оруулна уу!");
 } else {
   hariult = hiisenMongo - price;
 }
@@ -311,38 +311,52 @@ tawMynga = parseInt((hariult % 10000) / 1000);
 mynga = parseInt((hariult % 10000) / 1000);
 tawanZuut = parseInt((hariult % 1000) / 100);
 tawi = parseInt((hariult % 100) / 10);
+
 if (tawanZuut >= 5) {
   tawZuu = 1;
+} else {
+  tawZuu = 0;
 }
 if (tawanZuut >= 1) {
   zuut = tawanZuut - 5;
+} else {
+  zuut = 0;
 }
 if (tawMynga >= 1) {
   mynga = tawMynga - 5;
+} else {
+  mynga = 0;
 }
 if (tawMynga >= 5) {
   tawMynga = 1;
+} else {
+  tawMynga = 0;
 }
 
 if (tawi >= 5) {
   tawi = 1;
+} else {
+  tawi = 0;
 }
-let niit = Amynga + tawMynga + mynga + tawZuu + tawanZuut + tawi;
-console.log(
-  Amynga +
-    "Arwan myngat dewsgert  " +
-    tawMynga +
-    " Tawan myngat " +
-    mynga +
-    " Myngan dewsgert " +
-    tawZuu +
-    " shirheg tawan zuut " +
-    zuut +
-    " zuut iim shirher " +
-    tawi +
-    " shirheg tawi dewsgert " +
-    " iim shirheg togrog hariulaw " +
-    niit +
-    " " +
-    hariult
-);
+if (hiisenMongo >= price) {
+  let niit = Amynga + tawMynga + mynga + tawZuu + zuut + tawi;
+  console.log(
+    Amynga +
+      " Арван мянгат " +
+      tawMynga +
+      " Таван мянгат " +
+      mynga +
+      " Мянгат " +
+      tawZuu +
+      " Таван зуут " +
+      zuut +
+      " зуут " +
+      tawi +
+      " Тавьт " +
+      niit +
+      " Ширхэг дэвсгэрт хариулав: " +
+      " Хариулт нь " +
+      hariult +
+      " Төгрөг"
+  );
+}
