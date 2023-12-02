@@ -244,16 +244,15 @@
 // 3.1 Hariulah niit dung bodno
 //3.2 Ymar2 devsgert tgd hden sh uguhig bodno. (Nemelt)
 let tawi;
-let zuut;
 let tawanZuut;
 let Amynga;
 let mynga;
 let tawMynga;
 let price;
 let hariult;
-let shirheg;
-let orsonMongo;
+let tawZuut;
 let tawZuu;
+let tawMyngat;
 
 let awahZuil = window.prompt(
   "Авах барааны урд байгаа тоон утгийг оруулан бараагаа сонгоно уу!\n1: cola = 1200 төгрөг\n2: sprite = 1500 төгрөг\n3: lpenGold = 2000 төгрөг\n4: suu = 2200 төгрөг\n5: alh = 1000 төгрөг\n6: airmag = 500 төгрөг\n7: bohi = 150 төгрөг\n8: arhi = 15000 төгрөг"
@@ -300,54 +299,52 @@ switch (hiisenMongo) {
   case "20000":
     orsonMongo = 20000;
     break;
+  default:
+    console.log("Тийм мөнгөн дүн байхгүй");
+    break;
 }
-if (hiisenMongo <= price) {
-  console.log("Мөнгө хүрсэнгүй! Авах зүйлээс их үнийн дүн оруулна уу!");
-} else {
-  hariult = hiisenMongo - price;
-}
+
+hiisenMongo <= price
+  ? console.log("Мөнгө хүрсэнгүй! Авах зүйлээс их үнийн дүн оруулна уу!")
+  : (hariult = hiisenMongo - price);
+
 Amynga = parseInt(hariult / 10000);
 tawMynga = parseInt((hariult % 10000) / 1000);
 mynga = parseInt((hariult % 10000) / 1000);
-tawanZuut = parseInt((hariult % 1000) / 100);
+tawZuu = parseInt((hariult % 1000) / 100);
 tawi = parseInt((hariult % 100) / 10);
-
-if (tawanZuut >= 5) {
-  tawZuu = 1;
+if (tawZuu >= 5) {
+  tawZuut = 1;
+  zuut = tawZuu - 5;
 } else {
-  tawZuu = 0;
-}
-if (tawanZuut >= 1) {
-  zuut = tawanZuut - 5;
-} else {
-  zuut = 0;
-}
-if (tawMynga >= 1) {
-  mynga = tawMynga - 5;
-} else {
-  mynga = 0;
+  zuut = tawZuu;
+  tawZuut = 0;
 }
 if (tawMynga >= 5) {
-  tawMynga = 1;
+  tawMyngat = 1;
+  mynga = tawMynga - 5;
 } else {
-  tawMynga = 0;
+  mynga = tawMynga;
+  tawMyngat = 0;
 }
-
 if (tawi >= 5) {
   tawi = 1;
 } else {
   tawi = 0;
 }
-if (hiisenMongo >= price) {
-  let niit = Amynga + tawMynga + mynga + tawZuu + zuut + tawi;
+if (
+  hiisenMongo >= price &&
+  (hiisenMongo == 5000 || hiisenMongo == 10000 || hiisenMongo == 20000)
+) {
+  let niit = Amynga + tawMyngat + mynga + tawZuut + zuut + tawi;
   console.log(
     Amynga +
       " Арван мянгат " +
-      tawMynga +
+      tawMyngat +
       " Таван мянгат " +
       mynga +
       " Мянгат " +
-      tawZuu +
+      tawZuut +
       " Таван зуут " +
       zuut +
       " зуут " +
