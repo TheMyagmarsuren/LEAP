@@ -243,17 +243,20 @@
 // 3. hariult bodno
 // 3.1 Hariulah niit dung bodno
 //3.2 Ymar2 devsgert tgd hden sh uguhig bodno. (Nemelt)
-let tawi;
-let tawanZuut;
-let Amynga;
-let mynga;
-let tawMynga;
-let price;
-let hariult;
-let tawZuut;
-let tawZuu;
-let tawMyngat;
 
+// Хувьсагчууд
+let tawi,
+  tawanZuut,
+  Amynga,
+  mynga,
+  tawMynga,
+  price,
+  hariult,
+  tawZuut,
+  tawZuu,
+  tawMyngat;
+
+// Гараас утга авалт
 let awahZuil = window.prompt(
   "Авах барааны урд байгаа тоон утгийг оруулан бараагаа сонгоно уу!\n1: cola = 1200 төгрөг\n2: sprite = 1500 төгрөг\n3: lpenGold = 2000 төгрөг\n4: suu = 2200 төгрөг\n5: alh = 1000 төгрөг\n6: airmag = 500 төгрөг\n7: bohi = 150 төгрөг\n8: arhi = 15000 төгрөг"
 );
@@ -261,6 +264,7 @@ let hiisenMongo = window.prompt(
   "Зөвхөн доорх мөнгөн дэвсгэртээс сонгон оруулна уу!\n5000\n10000\n20000"
 );
 
+// Авах зүйлийн сонголтууд
 switch (awahZuil) {
   case "1":
     price = 1200;
@@ -289,6 +293,8 @@ switch (awahZuil) {
   default:
     console.log("Тийм бараа байхгүй байна!");
 }
+
+// Хийсэн мөнгө нь таарч байна уу?
 switch (hiisenMongo) {
   case "5000":
     orsonMongo = 5000;
@@ -304,15 +310,18 @@ switch (hiisenMongo) {
     break;
 }
 
+// Ternary нөхцөл мөнгөн дүн хүрсэн эсэх
 hiisenMongo <= price
   ? console.log("Мөнгө хүрсэнгүй! Авах зүйлээс их үнийн дүн оруулна уу!")
   : (hariult = hiisenMongo - price);
 
+// Бодолт
 Amynga = parseInt(hariult / 10000);
 tawMynga = parseInt((hariult % 10000) / 1000);
 mynga = parseInt((hariult % 10000) / 1000);
 tawZuu = parseInt((hariult % 1000) / 100);
 tawi = parseInt((hariult % 100) / 10);
+
 if (tawZuu >= 5) {
   tawZuut = 1;
   zuut = tawZuu - 5;
@@ -332,6 +341,8 @@ if (tawi >= 5) {
 } else {
   tawi = 0;
 }
+
+//Хариулт хэвлэх
 if (
   hiisenMongo >= price &&
   (hiisenMongo == 5000 || hiisenMongo == 10000 || hiisenMongo == 20000)
