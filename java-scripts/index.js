@@ -245,16 +245,7 @@
 //3.2 Ymar2 devsgert tgd hden sh uguhig bodno. (Nemelt)
 
 // Хувьсагчууд
-let tawi,
-  tawanZuut,
-  Amynga,
-  mynga,
-  tawMynga,
-  price,
-  hariult,
-  tawZuut,
-  tawZuu,
-  tawMyngat;
+let tawi, tawanZuut, Amynga, mynga, tawMynga, price, hariult, tawZuut, tawZuu;
 
 // Гараас утга авалт
 let awahZuil = window.prompt(
@@ -330,11 +321,11 @@ if (tawZuu >= 5) {
   tawZuut = 0;
 }
 if (tawMynga >= 5) {
-  tawMyngat = 1;
   mynga = tawMynga - 5;
+  tawMynga = 1;
 } else {
   mynga = tawMynga;
-  tawMyngat = 0;
+  tawMynga = 0;
 }
 if (tawi >= 5) {
   tawi = 1;
@@ -347,11 +338,11 @@ if (
   hiisenMongo >= price &&
   (hiisenMongo == 5000 || hiisenMongo == 10000 || hiisenMongo == 20000)
 ) {
-  let niit = Amynga + tawMyngat + mynga + tawZuut + zuut + tawi;
+  let niit = Amynga + tawMynga + mynga + tawZuut + zuut + tawi;
   console.log(
     Amynga +
       " Арван мянгат " +
-      tawMyngat +
+      tawMynga +
       " Таван мянгат " +
       mynga +
       " Мянгат " +
