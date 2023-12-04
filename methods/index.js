@@ -60,7 +60,6 @@ function bodolt() {
     case "1":
       price = 1200;
       break;
-    case "2":
       price = 1500;
       break;
     case "3":
