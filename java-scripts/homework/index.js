@@ -58,4 +58,45 @@
 // }
 // console.log(lastDigit(Number(input)));
 
-7;
+// 7. Аравтын орны цифр
+
+// let input = prompt("Тоо оруулна уу!");
+
+// function lastDigit(input) {
+//   a = parseInt((input % 100) / 10);
+//   return Math.abs(a);
+// }
+// console.log(lastDigit(Number(input)));
+
+// 8. Өгөгдсөн хоёр тооны үржвэр
+
+// let a = prompt("Эхний тоо");
+// let b = prompt("Хоёр дахь тоо");
+// function urjver(a, b) {
+//   result = a * b;
+//   return result;
+// }
+// console.log(urjver(Number(a), Number(b)));
+
+// 9. Өгөгдсөн гурван оронтой тооны нийлбэр
+
+// let a = prompt("Эхний цифр");
+// let b = prompt("Хоёр дахь цифр");
+// let c = prompt("Гурав дахь цифр");
+
+// function add(a, b, c) {
+//   result = a + b + c;
+//   return result;
+// }
+// console.log(add(Number(a), Number(b), Number(c)));
+
+// 10. Өгөгдсөн секундыг минут секунд болго
+
+let secund = prompt("Секунд");
+
+secToMinut = (secund) => {
+  minut = parseInt(secund / 60);
+  sec = secund % 60;
+  console.log(minut + " Минут", +sec + " Секунд");
+};
+secToMinut(Number(secund));
