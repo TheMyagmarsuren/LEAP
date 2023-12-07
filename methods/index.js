@@ -185,3 +185,60 @@
 // }
 // let hariu = orluulalt(x);
 // console.log(hariu);
+
+//  zereg
+
+// let a = prompt("1000 - aas baga utga oruulna uu ");
+// let zereg = 1;
+// let result = 0;
+// if (a == 1000) {
+//   console.log(a + " ийн " + zereg + " зэрэг" + " 1000 аас их байна ");
+// } else {
+//   while (result <= 1000) {
+//     result = a ** zereg;
+//     zereg++;
+//   }
+// }
+// if (result >= 1000) {
+//   zereg = zereg - 1;
+//   console.log(a + " ийн " + zereg + " зэрэг" + " 1000 аас их байна ");
+// }
+
+// let input = prompt("Зэрэг дэвшүүлэх тоо оруулна уу1");
+
+// let z = 1;
+// let a = input;
+// while (a <= 1000) {
+//   a = input ** z;
+//   z++;
+// }
+// if (a == 1000) {
+//   console.log(a + " ийн " + z + " зэрэг" + " 1000 аас их байна ");
+// } else {
+//   console.log(input + " ийн " + (z - 1) + " зэрэг" + " 1000 аас их байна ");
+// }
+
+// let input = prompt("too");
+
+// let t = 0;
+// let i = 0;
+// while (i <= input) {
+//   if (i % 2 == 0) {
+//     t = t + i;
+//   }
+//   i++;
+// }
+// console.log("tegsh " + t);
+
+// let input = prompt("too");
+// let i = 1;
+// let j = 1;
+// while (i <= input) {
+//   let line = "";
+//   while (j <= i) {
+//     let line = "";
+//     j++;
+//   }
+//   i++;
+//   console.log(line);
+// }
