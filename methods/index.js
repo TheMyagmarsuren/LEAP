@@ -243,18 +243,48 @@
 //   console.log(line);
 // }
 
-const fullName = "Dulam Jantsan";
-const firstName = fullName.split(" ")[0];
-const lastName = fullName.split(" ")[1];
-const firstLetterToUpperCase = (str) => {
-  return str.slice(0, 1).toUpperCase();
-};
+// const fullName = "Dulam Jantsan";
+// const firstName = fullName.split(" ")[0];
+// const lastName = fullName.split(" ")[1];
+// const firstLetterToUpperCase = (str) => {
+//   return str.slice(0, 1).toUpperCase();
+// };
 
-const linkTwoStr = (str) => {
-  const firstStr = firstLetterToUpperCase(str);
-  const lastStr = str.slice(1, str.length);
-  return firstStr + lastStr;
-};
+// const linkTwoStr = (str) => {
+//   const firstStr = firstLetterToUpperCase(str);
+//   const lastStr = str.slice(1, str.length);
+//   return firstStr + lastStr;
+// };
 
-const lastNameStr = firstLetterToUpperCase(lastName);
-console.log(lastNameStr + "." + " " + linkTwoStr(firstName, lastName));
+// const lastNameStr = firstLetterToUpperCase(lastName);
+// console.log(lastNameStr + "." + " " + linkTwoStr(firstName, lastName));
+
+// Объектийн мэдээлэлрүү key ээр нь дамжин утгын авна key.value; or key["value"]
+
+// let person = {
+//   name: "Miigaa",
+//   age: 22,
+// };
+// console.log(person["age"]);
+// console.log(person.name);
+
+// let person1 = {
+//   firstName: "MIigaa",
+// };
+// let person2 = {
+//   firstName: "M",
+// };
+// person2 = person1;
+// person2.firstName = "Erdene";
+// console.log(person1.firstName);
+// console.log(person2.firstName);
+
+// ... =================: spread operator;
+
+// const person = {
+//   name: "Dorj",
+//   age: 15,
+// };
+
+// const keys = Object.keys(person);
+// console.log(keys); // гаралт: ["Dorj",15]
