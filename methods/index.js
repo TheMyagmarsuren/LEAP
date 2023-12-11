@@ -242,3 +242,19 @@
 //   i++;
 //   console.log(line);
 // }
+
+const fullName = "Dulam Jantsan";
+const firstName = fullName.split(" ")[0];
+const lastName = fullName.split(" ")[1];
+const firstLetterToUpperCase = (str) => {
+  return str.slice(0, 1).toUpperCase();
+};
+
+const linkTwoStr = (str) => {
+  const firstStr = firstLetterToUpperCase(str);
+  const lastStr = str.slice(1, str.length);
+  return firstStr + lastStr;
+};
+
+const lastNameStr = firstLetterToUpperCase(lastName);
+console.log(lastNameStr + "." + " " + linkTwoStr(firstName, lastName));
