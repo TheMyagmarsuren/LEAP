@@ -94,9 +94,28 @@
 
 let secund = prompt("Секунд");
 
-secToMinut = (secund) => {
-  minut = parseInt(secund / 60);
+secToMinutSecund = (secund) => {
   sec = secund % 60;
-  console.log(minut + " Минут", +sec + " Секунд");
+  rSec = 0;
+  minute = parseInt(secund / 60);
+  rMin = 0;
+  time = parseInt(secund / 60 / 60);
+  rTime = 0;
+  if (sec >= 60) {
+    rSec = sec - 60;
+  } else {
+    rSec += sec;
+  }
+  if (minute >= 60) {
+    rMin += minute - 60;
+  } else {
+    rMin += minute;
+  }
+  if (time >= 24) {
+    rTime += 1;
+  } else {
+    rTime += time;
+  }
+  return console.log(rTime, rMin, rSec);
 };
-secToMinut(Number(secund));
+secToMinutSecund(secund);
