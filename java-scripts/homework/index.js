@@ -92,30 +92,57 @@
 
 // 10. Өгөгдсөн секундыг минут секунд болго
 
-let secund = prompt("Секунд");
+// let secund = prompt("Секунд");
 
-secToMinutSecund = (secund) => {
-  sec = secund % 60;
-  rSec = 0;
-  minute = parseInt(secund / 60);
-  rMin = 0;
-  time = parseInt(secund / 60 / 60);
-  rTime = 0;
-  if (sec >= 60) {
-    rSec = sec - 60;
-  } else {
-    rSec += sec;
-  }
-  if (minute >= 60) {
-    rMin += minute - 60;
-  } else {
-    rMin += minute;
-  }
-  if (time >= 24) {
-    rTime += 1;
-  } else {
-    rTime += time;
-  }
-  return console.log(rTime, rMin, rSec);
-};
-secToMinutSecund(secund);
+// secToMinutSecund = (secund) => {
+//   sec = secund % 60;
+//   rSec = 0;
+//   minute = parseInt(secund / 60);
+//   rMin = 0;
+//   time = parseInt(secund / 60 / 60);
+//   rTime = 0;
+//   if (sec >= 60) {
+//     rSec = sec - 60;
+//   } else {
+//     rSec += sec;
+//   }
+//   if (minute >= 60) {
+//     rMin += minute - 60;
+//   } else {
+//     rMin += minute;
+//   }
+//   if (time >= 24) {
+//     rTime += 1;
+//   } else {
+//     rTime += time;
+//   }
+//   return console.log(rTime, rMin, rSec);
+// };
+// secToMinutSecund(secund);
+
+// объектийн доторх утгийн хооронд нь солих функц
+
+// const mockObject = {
+//   key1: "value1",
+//   key2: 42,
+//   key3: ["item1", "item2"],
+//   key4: { nestedKey: "nestedValue" },
+//   key5: true,
+//   key6: null,
+// };
+
+// let addNext = (obj) => {
+//   const arr = Object.keys(obj);
+//   console.log(arr);
+//   let firstIndex = obj[arr[arr.length - 1]];
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     if (i == 0) {
+//       obj[arr[i]] = firstIndex;
+//     } else {
+//       obj[arr[i]] = obj[arr[i - 1]];
+//     }
+//   }
+//   return obj;
+// };
+// let a = addNext(mockObject);
+// console.log(a);
