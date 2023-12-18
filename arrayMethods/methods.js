@@ -150,3 +150,56 @@
 // }
 // let a = reverse();
 // console.log(a);
+
+// const numbers = {
+//   a: 5,
+//   b: 10,
+//   c: 3,
+// };
+
+// function add() {
+//   let sum = Object.keys(numbers);
+//   let a = 0;
+//   for (let i = 0; i < sum.length; i++) {
+//     a += numbers[sum[i]];
+//   }
+
+//   return a;
+// }
+// let b = add();
+// // console.log(b);
+
+// const stringObject = { name: "john", age: 25, city: "example" };
+// function string() {
+//   let value = Object.values(stringObject);
+//   let arr = [];
+//   let sum = "";
+//   for (let i = 0; i < value.length; i++) {
+//     let str = value[i].slice(0, 1);
+//     let s = value[i].slice(1, length);
+//     let str2 = str.toUpperCase();
+//     sum += console.log(str2);
+//   }
+// }
+// let a = string();
+// console.log(a);
+
+const mockObject = {
+  key1: "value1",
+  key2: 42,
+  key3: ["item1", "item2"],
+  key4: { nestedKey: "nestedValue" },
+  key5: true,
+  key6: null,
+};
+
+function value(obj) {
+  let arr = Object.keys(mockObject);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == arr[arr.length - 1]) {
+      console.log(arr[i]);
+    }
+  }
+  return arr;
+}
+let result = value(mockObject);
