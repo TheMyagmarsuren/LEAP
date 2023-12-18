@@ -183,23 +183,3 @@
 // }
 // let a = string();
 // console.log(a);
-
-const mockObject = {
-  key1: "value1",
-  key2: 42,
-  key3: ["item1", "item2"],
-  key4: { nestedKey: "nestedValue" },
-  key5: true,
-  key6: null,
-};
-
-function value(obj) {
-  let arr = Object.keys(mockObject);
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == arr[arr.length - 1]) {
-      console.log(arr[i]);
-    }
-  }
-  return arr;
-}
-let result = value(mockObject);

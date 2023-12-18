@@ -1,0 +1,8 @@
+.container {
+  width: 10100vh;
+  height: 500px;
+  background-color: blue;
+}
+button {
+  padding: 100px;
+}

@@ -291,40 +291,40 @@
 
 // homework
 
-let arr = [
-  {
-    firstName: Bat,
-    lastName: Bold,
-    age: 12,
-    gender: Male,
-  },
-  {
-    firstName: Tsetseg,
-    lastName: Nawchaa,
-    age: 25,
-    gender: Female,
-  },
-  {
-    firstName: Dondog,
-    lastName: Erdene,
-    age: 34,
-    gender: Male,
-  },
-  {
-    firstName: Miigaa,
-    lastName: Bayraa,
-    age: 20,
-    gender: Male,
-  },
-];
-// let twentyUp = (arr) => {
-//   let index = 0;
-//   while (index <= arr.length) {
-//     if (Object.values(age) > 20) {
-//       console.log(index);
-//     }
-//     index++;
-//   }
-// };
-// twentyUp();
-console.log(Object.values.arr[0]);
+// let arr = [
+//   {
+//     firstName: Bat,
+//     lastName: Bold,
+//     age: 12,
+//     gender: Male,
+//   },
+//   {
+//     firstName: Tsetseg,
+//     lastName: Nawchaa,
+//     age: 25,
+//     gender: Female,
+//   },
+//   {
+//     firstName: Dondog,
+//     lastName: Erdene,
+//     age: 34,
+//     gender: Male,
+//   },
+//   {
+//     firstName: Miigaa,
+//     lastName: Bayraa,
+//     age: 20,
+//     gender: Male,
+//   },
+// ];
+// // let twentyUp = (arr) => {
+// //   let index = 0;
+// //   while (index <= arr.length) {
+// //     if (Object.values(age) > 20) {
+// //       console.log(index);
+// //     }
+// //     index++;
+// //   }
+// // };
+// // twentyUp();
+// console.log(Object.values.arr[0]);

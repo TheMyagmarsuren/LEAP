@@ -249,11 +249,11 @@
 // }
 
 // 22.
-// let sum = "";
+
 // for (let i = 5; i >= 1; i--) {
+// let sum = "";
 //   for (let j = 1; j <= 5; j++) {
 //     sum += j + " ";
 //   }
 //   console.log(sum);
-//   sum = "";
 // }
