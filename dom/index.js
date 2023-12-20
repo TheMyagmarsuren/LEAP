@@ -22,16 +22,16 @@
 // myButton.addEventListener("click", bgColorChange);
 
 // 2.
-
-let myButton = document.getElementsByTagName("button");
-let orolt = document.getElementsByTagName("input");
-function asdf() {
-  let davtalt = Number(orolt.value);
-  for (let i = 0; i < davtalt; i++) {
-    let b = document.getElementsByClassName("divClass")[0];
-    b[i].createElement("div");
-    b.style =
-      "width: 50px; height: 50px; border-radius: 50%; background-color: blue;";
+let inputValue = document.getElementsByTagName("input")[0];
+let crButton = document.getElementsByTagName("button")[0];
+let doClass = document.getElementsByClassName("d")[0];
+function a() {
+  doClass.innerHTML = "";
+  for (let i = 1; i <= Number(inputValue.value); i++) {
+    let nDiv = document.createElement("div");
+    nDiv.classList.add("flex");
+    nDiv.style.backgroundColor = `rgb(31, 123, ${i}`;
+    doClass.appendChild(nDiv);
   }
 }
-myButton.addEventListener("click", asdf);
+crButton.addEventListener("click", a);

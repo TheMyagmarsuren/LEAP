@@ -1,32 +1,21 @@
-function validation(inputs) {
-  // энд та нарт бүх input орж ирж байгаа зөв эсэхийг дараах байдалаар шалгана
-  // 2 password хоорондоо адил байгаа эсэх
-  // password ийн урт 8с урт байх ёстой
-  // email дотор заавал @ болон . орсон байх
-  // эдгээр нөхцөл биелсэн бол true буцаана
-
-  //жишээ хэрэглээ
-
-  console.log("Email input ийн урт: ", inputs.email.value.length);
-  return false;
+let input1 = document.getElementsByTagName("input")[0];
+input1.value = Math.floor(Math.random() * (99 - 0) + 0);
+let input2 = document.getElementsByTagName("input")[1];
+input2.value = Math.floor(Math.random() * (99 - 0) + 0);
+let answer = document.getElementsByTagName("input")[2];
+let myButton1 = document.getElementsByTagName("button")[0];
+let myButton2 = document.getElementsByTagName("button")[1];
+function a() {
+  if (Number(input1.value) + Number(input2.value) == Number(answer.value)) {
+    alert("Zov hariult");
+  } else {
+    alert("Buruu hariult");
+  }
 }
-
-// бүх input үүдийг inputs-д авч байна
-const inputs = document.getElementsByTagName("input");
-// хэдэн input байгааг тоолж байна
-const howManyInputs = document.getElementsByTagName("input").length;
-
-for (let i = 0; i < howManyInputs; i++) {
-  // input бүрт addEventListener өгч change эвэнтийг сонсож байна
-  inputs[i].addEventListener("change", () => {
-    // input ийн утга өөрчлөгдөх бүрт 3н input үүдийн утгуудыг харж болно
-    console.log("Email-ийн утга: ", inputs.email.value);
-    console.log("Password-ийн утга: ", inputs.psw.value);
-    console.log("repeatPsw-ийн утга: ", inputs.repeatPsw.value);
-
-    // бүх input үүдийг авч зөв эсэхийг шалгах фүнкц дуудаж байна
-    if (validation(inputs)) {
-      document.querySelector(".registerBtn").disabled = false;
-    }
-  });
+function b() {
+  input1.value = Math.floor(Math.random() * (99 - 0) + 0);
+  input2.value = Math.floor(Math.random() * (99 - 0) + 0);
+  answer.value = "";
 }
+myButton1.addEventListener("click", a);
+myButton2.addEventListener("click", b);
