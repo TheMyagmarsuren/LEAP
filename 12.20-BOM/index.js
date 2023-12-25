@@ -13,16 +13,16 @@
 
 // let interval;
 // function start() {
-//    interval = setInterval(()=>{
+//   interval = setInterval(() => {
 //     number.value++;
-//    }, 1000);
+//   }, 1000);
 // }
 
 // function stop() {
 //   clearInterval(interval);
 // }
 
-// function reset (){
+// function reset() {
 //   number.value = 0;
 //   stop();
 // }
