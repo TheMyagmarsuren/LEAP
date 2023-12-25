@@ -3,31 +3,61 @@
   padding: 0;
   box-sizing: border-box;
 }
-.a {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  position: absolute;
-  top: 150px;
-  left: 25%;
-}
-#container {
-  background-image: url(https://c1.wallpaperflare.com/path/565/385/156/sunset-brook-green-meadow-june-df867360f0bed19da26bbb3838498c8f.jpg);
-  background-size: 100% 100%;
+body {
+  background-image: url("https://c1.wallpaperflare.com/path/565/385/156/sunset-brook-green-meadow-june-df867360f0bed19da26bbb3838498c8f.jpg");
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
+  background-size: 100% 100%;
 }
-.toDo {
-  width: 300px;
-  height: 100px;
-  border-radius: 8px;
-  background-color: #ebecf0;
-}
-h3 {
-  margin-left: 5px;
-  margin-top: 5px;
+.container {
+  margin-left: auto;
+  margin-right: auto;
 }
 .flex {
+  position: relative;
   display: flex;
-  padding-top: 5px;
+  justify-content: center;
+  gap: 16px;
+  top: 120px;
+}
+.toDo {
+  background-color: #ebecf0;
+  width: 310px;
+  height: auto;
+  border-radius: 8px;
+  gap: 16px;
+  padding: 8px;
+}
+
+.header {
+  font-family: "Roboto", sans-serif;
+  padding: 8px;
+  display: flex;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  align-items: center;
+}
+.add-btn {
+  gap: 16px;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+}
+.display-flex {
+  display: flex;
+}
+span {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.add-btn:hover {
+  background-color: rgb(220, 219, 219);
+}
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

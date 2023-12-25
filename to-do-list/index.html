@@ -1,29 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo&family=Open+Sans:wght@300&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./index.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <div id="container">
-      <div class="a">
-        <div class="toDo flex">
-          <h3>To-do</h3>
-          <span>0</span>
+    <div class="container">
+      <div class="flex">
+        <div class="toDo">
+          <div class="header">
+            To do
+            <span>1</span>
+          </div>
+          <div class="cards" id="toDo"></div>
+          <div class="add-btn display-flex">
+            +
+            <div>Add card</div>
+          </div>
         </div>
-        <div class="toDo flex">
-          <h3>In progress</h3>
-          <span>0</span>
+        <div class="toDo">
+          <div class="header">In progress<span>0</span></div>
+          <div class="cards"></div>
+          <div class="add-btn display-flex">
+            +
+            <div>Add card</div>
+          </div>
         </div>
-        <div class="toDo flex">
-          <h3>Stuck</h3>
-          <span>0</span>
+        <div class="toDo">
+          <div class="header">
+            Stuck
+            <span>0</span>
+          </div>
+          <div class="cards"></div>
+          <div class="add-btn display-flex">
+            +
+            <div>Add card</div>
+          </div>
         </div>
-        <div class="toDo flex">
-          <h3>Done</h3>
-          <span>0</span>
+        <div class="toDo">
+          <div class="header">
+            Done
+            <span>0</span>
+          </div>
+          <div class="cards"></div>
+          <div class="add-btn display-flex">
+            +
+            <div>Add card</div>
+          </div>
         </div>
       </div>
     </div>
