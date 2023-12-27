@@ -20,8 +20,25 @@
             To do
             <span>1</span>
           </div>
-          <div class="cards" id="toDo"></div>
-          <div class="add-btn display-flex">
+          <div id="cards">
+            <div id="inputs">
+              <div class="circle"><span>&#10003;</span></div>
+              <div class="direction-column">
+                <div class="title-value"></div>
+                <div></div>
+                <div class="level"><strong></strong></div>
+              </div>
+              <div>
+                <div class="circle margin-left-100px direction-column">
+                  <span>&#10005;</span>
+                </div>
+                <div class="circle margin-left-100px margin-top-10px">
+                  <span>&#9986;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="add-btn display-flex" onclick="show()">
             +
             <div>Add card</div>
           </div>
@@ -29,7 +46,7 @@
         <div class="toDo">
           <div class="header">In progress<span>0</span></div>
           <div class="cards"></div>
-          <div class="add-btn display-flex">
+          <div class="add-btn display-flex" onclick="show()">
             +
             <div>Add card</div>
           </div>
@@ -40,7 +57,7 @@
             <span>0</span>
           </div>
           <div class="cards"></div>
-          <div class="add-btn display-flex">
+          <div class="add-btn display-flex" onclick="show()">
             +
             <div>Add card</div>
           </div>
@@ -50,8 +67,8 @@
             Done
             <span>0</span>
           </div>
-          <div class="cards"></div>
-          <div class="add-btn display-flex">
+          <div id="cards" class="modal"></div>
+          <div class="add-btn display-flex" onclick="show()">
             +
             <div>Add card</div>
           </div>
@@ -60,10 +77,35 @@
       <div class="task">
         <div class="input">
           <h1>Add task</h1>
-          <div class="title">
-            <label for="">title</label>
-            <input type="text" width="100%" />
+
+          <div>
+            <label for="">Title</label> <input id="title-input" type="text" />
           </div>
+          <div>
+            <label for="">Description</label>
+            <textarea
+              id="description-input"
+              class="description-area"
+            ></textarea>
+          </div>
+          <div>
+            <label for="">Status</label>
+            <select class="status-area" id="status-input">
+              <option value="todo">To do</option>
+              <option value="inprogress">In progress</option>
+              <option value="Stuckln progress">Stuckln progress</option>
+              <option value="Doneln progress">Doneln progress</option>
+            </select>
+          </div>
+          <div>
+            <label>Priority</label>
+            <select id="priority-input" class="status-area">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <button id="add-task">Add task</button>
         </div>
       </div>
     </div>
