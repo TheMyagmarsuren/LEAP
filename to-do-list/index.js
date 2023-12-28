@@ -2,14 +2,6 @@ let show = () => {
   let a = document.getElementsByClassName("task")[0];
   a.classList.add("show");
 };
-// let hide = (event) => {
-//   let a = document.getElementsByClassName("task")[0];
-//   window.onclick = function () {
-//     if (event.target == a) {
-//       a.classList.remove("show");
-//     }
-//   };
-// };
 
 const taskContainer = document.getElementsByClassName("task")[0];
 window.onclick = function (event) {
@@ -32,24 +24,59 @@ const addValue = () => {
     priority: priorityValue,
   };
   arr.push(inputObj);
-  console.log(arr);
+  render();
 };
+addTaskButton.addEventListener("click", addValue);
 
 const render = () => {
   let boxString = "";
-  boxArray.forEach((el, i) => {
+  arr.forEach((el, i) => {
     boxString += `<div ondragstart="drag(event)" class="box" draggable="true" id="box-${
       el.title + i
     }">
-        <ul>
-          <li>${el.title}</li>
-          <li>${el.Description}</li>
-          <li>${el.Status``}</li>
-          <li>${el.Priority}</li>
-        </ul>
+    <div id="inputs">
+    <div class="circle"><span>&#10003;</span></div>
+    <div class="direction-column">
+      <div class="title-value">${el.title}</div>
+      <div class = "width">${el.description}</div>
+      <div class="level">${el.priority}</div>
+    </div>
+    <div>
+      <div class="circle margin-left-100px direction-column">
+        <span>&#10005;</span>
       </div>
-      `;
+      <div class="circle margin-left-100px margin-top-10px">
+        <span>&#9986;</span>
+      </div>
+    </div>
+  </div>
+    </div>
+    `;
+    switch (el.status) {
+      case "inprogress":
+        document.getElementById("INPROGRESS").innerHTML = boxString;
+        break;
+      case "Stuckln-progress":
+        document.getElementById("STUCK").innerHTML = boxString;
+        break;
+      case "todo":
+        document.getElementById("TODO").innerHTML = boxString;
+        break;
+      case "Doneln-progress":
+        document.getElementById("DONE").innerHTML = boxString;
+        break;
+    }
   });
-  document.getElementById("cards").innerHTML = boxString;
 };
 render();
+const allowDrop = (event) => {
+  event.preventDefault();
+};
+const drag = (event) => {
+  event.dataTransfer.setData("text", event.target.id);
+};
+const drop = (event) => {
+  event.preventDefault();
+  const boxId = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(boxId));
+};

@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="index.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .rainbow-line {
+        width: 3px;
+        height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet
+        );
+      }
+    </style>
   </head>
   <body>
-    <script src="index.js"></script>
+    <div class="rainbow-line"></div>
   </body>
 </html>
