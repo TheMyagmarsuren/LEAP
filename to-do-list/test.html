@@ -41,18 +41,20 @@
   <body>
     <div class="flex">
       <!-- ehnii container -->
+      <h1>todo</h1>
       <div
         class="container flex"
         ondragover="allowDrop(event)"
         ondrop="drop(event)"
-        id="container-1"
+        id="todo"
       ></div>
       <!-- 2 dahi container-->
+      <h1>done</h1>
       <div
         class="container flex"
         ondragover="allowDrop(event)"
         ondrop="drop(event)"
-        id="container-2"
+        id="done"
       ></div>
       <!-- modal gargah -->
       <button onclick="show()" id="add-todo-button">Add todo</button>
@@ -77,31 +79,35 @@
       // huuramch todo data
       const boxArray = [
         {
+          id: "dsadasdasdsadsa",
           title: "Read book",
           Description: "Huuhdin nom olj unshih",
           Status: "todo",
           Priority: "low",
         },
         {
+          id: "qdwqdwq",
           title: "Code",
           Description: "SPOJ 10 bodlogo",
-          Status: "doing",
+          Status: "todo",
           Priority: "high",
         },
         {
+          id: "ewqeqwedsadsadsadsa",
           title: "Sleep",
           Description: "8n tsag untah",
           Status: "todo",
           Priority: "high",
         },
       ];
-      // array dahi elementudig niilulj boxnud bolgod container-1 ruu hiij bga
+      // array dahi elementudig niilulj boxnud bolgod todo ruu hiij bga
       const render = () => {
-        let boxString = "";
-        boxArray.forEach((el, i) => {
-          boxString += `<div ondragstart="drag(event)" class="box" draggable="true" id="box-${
-            el.title + i
-          }">
+        let todoContainerElemenents = "";
+        let doneContainerElemenents = "";
+        const filteredTodo = boxArray.filter((el, i) => el.Status === "todo");
+        const filteredDone = boxArray.filter((el, i) => el.Status === "done");
+        filteredTodo.forEach((el, i) => {
+          todoContainerElemenents += `<div ondragstart="drag(event)" class="box" draggable="true" id="${el.id}">
             <ul>
               <li>${el.title}</li>
               <li>${el.Description}</li>
@@ -111,7 +117,19 @@
           </div>
           `;
         });
-        document.getElementById("container-1").innerHTML = boxString;
+        filteredDone.forEach((el, i) => {
+          doneContainerElemenents += `<div ondragstart="drag(event)" class="box" draggable="true" id="${el.id}">
+            <ul>
+              <li>${el.title}</li>
+              <li>${el.Description}</li>
+              <li>${el.Status}</li>
+              <li>${el.Priority}</li>
+            </ul>
+          </div>
+          `;
+        });
+        document.getElementById("todo").innerHTML = todoContainerElemenents;
+        document.getElementById("done").innerHTML = doneContainerElemenents;
       };
       render();
       //todo nemeh
@@ -122,7 +140,9 @@
         const statusInputValue = document.getElementById("status-input").value;
         const priorityInputValue =
           document.getElementById("priority-input").value;
+        console.log(Math.random());
         const inputObj = {
+          id: Math.random().toString(),
           title: titleInputValue,
           Description: descriptionInputValue,
           Status: statusInputValue,
@@ -153,13 +173,16 @@
       const drop = (event) => {
         event.preventDefault();
         const boxId = event.dataTransfer.getData("text");
-        event.target.appendChild(document.getElementById(boxId));
+        const filteredTodo = boxArray.filter((el, i) => el.id === boxId);
+        filteredTodo[0].Status = event.target.id;
+        render();
       };
+      //edit function implement
+      const edit = () => {};
       //modal gadna tald darahad nuugdah   ======> zasah shaardlagatai
       const modalContainer =
         document.getElementsByClassName("modalContainer")[0];
       window.onclick = function (event) {
-        console.log(event.target);
         if (event.target == modalContainer) {
           //
           console.log(event.target, "=====", modalContainer);

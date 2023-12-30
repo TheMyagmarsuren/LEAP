@@ -24,8 +24,10 @@
             id="TODO"
             class="gap-8px"
             class="container flex"
-            ondragover="allowDrop(event)"
             ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragstart="drag(event)"
+            draggable="trusse"
           ></div>
           <div class="add-btn display-flex" onclick="show()">
             +
@@ -38,8 +40,10 @@
             id="INPROGRESS"
             class="gap-8px"
             class="container flex"
-            ondragover="allowDrop(event)"
             ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+            ondragstart="drag(event)"
+            draggable="true"
           ></div>
           <div class="add-btn display-flex" onclick="show()">
             +
@@ -57,6 +61,8 @@
             class="container flex"
             ondragover="allowDrop(event)"
             ondrop="drop(event)"
+            ondragstart="drag(event)"
+            draggable="true"
           ></div>
 
           <div class="add-btn display-flex" onclick="show()">
@@ -76,6 +82,8 @@
             class="container flex"
             ondragover="allowDrop(event)"
             ondrop="drop(event)"
+            ondragstart="drag(event)"
+            draggable="true"
           ></div>
           <div class="add-btn display-flex" onclick="show()">
             +

@@ -31,8 +31,7 @@ addTaskButton.addEventListener("click", addValue);
 const render = () => {
   let boxString = "";
   arr.forEach((el, i) => {
-    boxString += `<div ondragstart="drag(event)" class="box" draggable="true" id="box-${
-      el.title + i
+    boxString += `<div draggable="true" ondragstart="drag(event)" 
     }">
     <div id="inputs">
     <div class="circle"><span>&#10003;</span></div>

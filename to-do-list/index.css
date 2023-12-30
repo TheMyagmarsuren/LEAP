@@ -160,6 +160,7 @@ button {
   display: flex;
   gap: 8px;
   flex-direction: column;
+  height: fit-content;
 }
 .width {
   width: 150px;
