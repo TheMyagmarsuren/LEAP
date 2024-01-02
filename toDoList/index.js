@@ -15,36 +15,6 @@ window.onclick = (event) => {
 const addTaskButton = document.getElementById("submit");
 
 const arr = [];
-const render = () => {
-  let todoContainerElemenents = "";
-  let doneContainerElemenents = "";
-  let stuckContainerELements = "";
-  let inProgressContainerElements = "";
-  const filteredTodo = arr.filter((el, i) => el.status === "todo");
-  const filteredDone = arr.filter((el, i) => el.status === "done");
-  const filteredStuck = arr.filter((el, i) => el.status === "stuck");
-  const filteredInProgress = arr.filter((el, i) => el.status === "inprogress");
-  filteredTodo.forEach((el, i) => {
-    todoContainerElemenents += `<div class="iishee"><div class="circle">&#10003;</div><div class="display-flex"><div>${el.title}</div><div>${el.description}</div><div class="level">${el.status}</div></div><div class="edit"><div class="circle">&#10006;</div><div class="circle">&#9985;</div></div></div>`;
-  });
-  filteredStuck.forEach((el, i) => {
-    stuckContainerELements += `<div class="iishee"><div class="circle">&#10003;</div><div class="display-flex"><div>${el.title}</div><div>${el.description}</div><div class="level">${el.status}</div></div><div class="edit"><div class="circle">&#10006;</div><div class="circle">&#9985;</div></div></div>`;
-  });
-  filteredDone.forEach((el, i) => {
-    doneContainerElemenents += `<div class="iishee"><div class="circle">&#10003;</div><div class="display-flex"><div>${el.title}</div><div>${el.description}</div><div class="level">${el.status}</div></div><div class="edit"><div class="circle">&#10006;</div><div class="circle">&#9985;</div></div></div>`;
-  });
-  filteredInProgress.forEach((el, i) => {
-    inProgressContainerElements += `<div class="iishee"><div class="circle">&#10003;</div><div class="display-flex"><div>${el.title}</div><div>${el.description}</div><div class="level">${el.status}</div></div><div class="edit"><div class="circle">&#10006;</div><div class="circle">&#9985;</div></div></div>`;
-  });
-  console.log(
-    (document.getElementById("todo").innerHTML = todoContainerElemenents)
-  );
-  document.getElementById("inprogress").innerHTML = inProgressContainerElements;
-  document.getElementById("done").innerHTML = doneContainerElemenents;
-  document.getElementById("stuck").innerHTML = stuckContainerELements;
-};
-render();
-
 const addTodo = () => {
   let titleValue = document.getElementById("title-value").value;
   let textValue = document.getElementById("textarea-value").value;
@@ -58,9 +28,114 @@ const addTodo = () => {
     priority: priorityValue,
   };
   arr.push(obj);
+
   render();
 };
+
+const render = () => {
+  let todo = "";
+  let inprogress = "";
+  let stuck = "";
+  let done = "";
+
+  const filteredToDo = arr.filter((el, i) => el.status === "todo");
+  const filteredInProgress = arr.filter((el, i) => el.status === "inprogress");
+  const filteredStuck = arr.filter((el, i) => el.status === "stuck");
+  const filteredDone = arr.filter((el, i) => el.status === "done");
+  document.getElementsByClassName("toDoCount")[0].innerHTML =
+    filteredToDo.length;
+  document.getElementsByClassName("inProgressCount")[0].innerHTML =
+    filteredInProgress.length;
+  document.getElementsByClassName("stuckCount")[0].innerHTML =
+    filteredStuck.length;
+  document.getElementsByClassName("doneCount")[0].innerHTML =
+    filteredDone.length;
+  filteredToDo.forEach((el, i) => {
+    todo += `<div
+    class="iishee"
+    draggable="true"
+    ondragstart="drag(event)"
+    id="todo${i}"
+  >
+    <div class="circle">&#10003;</div>
+    <div class="display-flex">
+      <div>${el.title}</div>
+      <div>${el.description}</div>
+      <div class="level">${el.status}</div>
+    </div>
+    <div class="edit">
+      <div class="circle">&#10006;</div>
+      <div class="circle">&#9985;</div>
+    </div>
+  </div>`;
+    document.getElementById("flex").innerHTML = todo;
+  });
+
+  filteredInProgress.forEach((el, i) => {
+    inprogress += `<div
+    class="iishee"
+    draggable="true"
+    ondragstart="drag(event)"
+    id="inprogress${i}"
+  >
+    <div class="circle">&#10003;</div>
+    <div class="display-flex">
+      <div>${el.title}</div>
+      <div>${el.description}</div>
+      <div class="level">${el.status}</div>
+    </div>
+    <div class="edit">
+      <div class="circle">&#10006;</div>
+      <div class="circle">&#9985;</div>
+    </div>
+  </div>`;
+    document.getElementsByClassName("inProgress")[0].innerHTML = inprogress;
+  });
+  filteredStuck.forEach((el, i) => {
+    stuck += `<div
+    class="iishee"
+    draggable="true"
+    ondragstart="drag(event)"
+    id="stuck${i}"
+  >
+    <div class="circle">&#10003;</div>
+    <div class="display-flex">
+      <div>${el.title}</div>
+      <div>${el.description}</div>
+      <div class="level">${el.status}</div>
+    </div>
+    <div class="edit">
+      <div class="circle">&#10006;</div>
+      <div class="circle">&#9985;</div>
+    </div>
+  </div>`;
+    document.getElementsByClassName("STUCK")[0].innerHTML = stuck;
+  });
+  filteredDone.forEach((el, i) => {
+    done += `<div
+    class="iishee"
+    draggable="true"
+    ondragstart="drag(event)"
+    id="done${i}"
+  >
+    <div class="circle">&#10003;</div>
+    <div class="display-flex">
+      <div>${el.title}</div>
+      <div>${el.description}</div>
+      <div class="level">${el.status}</div>
+    </div>
+    <div class="edit">
+      <div class="circle">&#10006;</div>
+      <div class="circle">&#9985;</div>
+    </div>
+  </div>`;
+    document.getElementsByClassName("DONE")[0].innerHTML = done;
+  });
+};
+render();
+
 addTaskButton.addEventListener("click", addTodo);
+
 function allowDrop(ev) {
   ev.preventDefault();
 }
@@ -74,3 +149,9 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
+let x = document.getElementById("x");
+
+x.addEventListener("click", () => {
+  let i = event.target.id;
+  console.log(i);
+});

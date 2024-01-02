@@ -18,12 +18,12 @@
   <body>
     <div class="container">
       <div class="boards">
-        <div class="board">
+        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
           <div class="header">
             <div>To do</div>
-            <span class="count">0</span>
+            <span class="toDoCount"></span>
           </div>
-          <div id="flex" id="todo">
+          <div id="flex" id="toDo">
             <div
               class="iishee"
               draggable="true"
@@ -37,7 +37,7 @@
                 <div class="level">${el.status}</div>
               </div>
               <div class="edit">
-                <div class="circle">&#10006;</div>
+                <div class="circle" id="x">&#10006;</div>
                 <div class="circle">&#9985;</div>
               </div>
             </div>
@@ -48,39 +48,39 @@
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board">
+        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
           <div class="header">
             <div>In progress</div>
-            <span class="count">0</span>
+            <span class="inProgressCount"></span>
           </div>
 
-          <div id="flex" id="inprogress"></div>
+          <div id="flex" class="inProgress"></div>
 
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board">
+        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
           <div class="header">
             <div>Stuck</div>
-            <span class="count">0</span>
+            <span class="stuckCount"></span>
           </div>
 
-          <div id="flex" id="stuck"></div>
+          <div id="flex" class="STUCK"></div>
 
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board">
+        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
           <div class="header">
             <div>Done</div>
-            <span class="count">0</span>
+            <span class="doneCount"></span>
           </div>
 
-          <div id="flex" id="done"></div>
+          <div id="flex" class="DONE"></div>
 
           <div class="add-btn">
             <span>+</span>
