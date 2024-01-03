@@ -22,6 +22,7 @@ const addTodo = () => {
   let priorityValue = document.getElementById("priority-value").value;
 
   let obj = {
+    id: Math.floor(Math.random(99 - 0) + 0),
     title: titleValue,
     description: textValue,
     status: statusValue,
@@ -64,7 +65,7 @@ const render = () => {
       <div class="level">${el.status}</div>
     </div>
     <div class="edit">
-      <div class="circle">&#10006;</div>
+      <div class="circle" onclick="x()">&#10006;</div>
       <div class="circle">&#9985;</div>
     </div>
   </div>`;
@@ -149,9 +150,7 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
   ev.target.appendChild(document.getElementById(data));
 }
-let x = document.getElementById("x");
 
-x.addEventListener("click", () => {
-  let i = event.target.id;
-  console.log(i);
-});
+const x = (ev) => {
+  console.log(ev);
+};

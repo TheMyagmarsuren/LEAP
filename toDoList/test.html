@@ -6,13 +6,19 @@
     <title>Document</title>
   </head>
   <body>
+    <button
+      onclick="x(event.target)"
+      style="background-color: aqua; width: 100vw; height: 100vh"
+    >
+      add
+    </button>
     <script>
-      const obj2 = { name: value };
-      console.log(arr[0].length);
-      let obj = {};
-      obj[obj2.name];
-      obj = obj2.name;
-      console.log(obj);
+      const arr = [];
+      let obj = { id: Math.floor(Math.random(99 - 0) + 0), one: "asd" };
+      arr.push(obj);
+      const x = (e) => {
+        console.log(e);
+      };
     </script>
   </body>
 </html>

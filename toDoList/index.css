@@ -112,7 +112,6 @@ button {
   justify-content: space-between;
   padding: 8px;
   width: 100%;
-  height: fit-content;
   background-color: #fff;
   border-radius: 4px;
 }
@@ -124,6 +123,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.circle:hover {
+  background-color: rgb(217, 214, 214);
+  cursor: pointer;
 }
 .display-flex {
   display: flex;
