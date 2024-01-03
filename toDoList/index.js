@@ -22,7 +22,7 @@ const addTodo = () => {
   let priorityValue = document.getElementById("priority-value").value;
 
   let obj = {
-    id: Math.floor(Math.random() * (99 - 0) + 0),
+    id: titleValue + Math.floor(Math.random() * (999 - 0) + 0),
     title: titleValue,
     description: textValue,
     status: statusValue,
@@ -148,7 +148,15 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  ev.target.appendChild(document.getElementById(data));
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id == data) {
+      let changeStatus = (arr[i].status = "inprogress");
+      arr.push(changeStatus);
+      console.log(ev.target);
+    }
+  }
+  document.getElementById(data).style.display = "none";
+  render();
 }
 
 const x = (ev) => {
@@ -157,8 +165,8 @@ const x = (ev) => {
       arr.splice(i, 1);
     }
   }
-  document.getElementById(`${ev}`).style.display = "none";
   render();
+  document.getElementById(`${ev}`).style.display = "none";
 };
 const select = (ev) => {
   for (let i = 0; i < arr.length; i++) {
@@ -166,6 +174,7 @@ const select = (ev) => {
       arr.push((arr[i].status = "done"));
       render();
       document.getElementById(`${ev}`).style.display = "none";
+      break;
     }
   }
   render();
