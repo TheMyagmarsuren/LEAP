@@ -7,17 +7,18 @@
   </head>
   <body>
     <button
-      onclick="x(event.target)"
-      style="background-color: aqua; width: 100vw; height: 100vh"
+      id="one"
+      style="width: 100vw; height: 100vh"
+      onclick="x(event.target.id)"
     >
       add
     </button>
     <script>
       const arr = [];
-      let obj = { id: Math.floor(Math.random(99 - 0) + 0), one: "asd" };
-      arr.push(obj);
+      let obj = { id: Math.ceil(Math.random() * (99 - 0) + 0), one: "asd" };
       const x = (e) => {
-        console.log(e);
+        arr.push(obj);
+        console.log(arr[0].id);
       };
     </script>
   </body>

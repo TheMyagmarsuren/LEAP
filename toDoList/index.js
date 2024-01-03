@@ -22,7 +22,7 @@ const addTodo = () => {
   let priorityValue = document.getElementById("priority-value").value;
 
   let obj = {
-    id: Math.floor(Math.random(99 - 0) + 0),
+    id: Math.floor(Math.random() * (99 - 0) + 0),
     title: titleValue,
     description: textValue,
     status: statusValue,
@@ -56,16 +56,16 @@ const render = () => {
     class="iishee"
     draggable="true"
     ondragstart="drag(event)"
-    id="todo${i}"
+    id="${el.id}"
   >
-    <div class="circle">&#10003;</div>
+    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
       <div class="level">${el.status}</div>
     </div>
     <div class="edit">
-      <div class="circle" onclick="x()">&#10006;</div>
+      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
       <div class="circle">&#9985;</div>
     </div>
   </div>`;
@@ -77,16 +77,16 @@ const render = () => {
     class="iishee"
     draggable="true"
     ondragstart="drag(event)"
-    id="inprogress${i}"
+    id="${el.id}"
   >
-    <div class="circle">&#10003;</div>
+    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
       <div class="level">${el.status}</div>
     </div>
     <div class="edit">
-      <div class="circle">&#10006;</div>
+      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
       <div class="circle">&#9985;</div>
     </div>
   </div>`;
@@ -97,16 +97,16 @@ const render = () => {
     class="iishee"
     draggable="true"
     ondragstart="drag(event)"
-    id="stuck${i}"
+    id="${el.id}"
   >
-    <div class="circle">&#10003;</div>
+    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
       <div class="level">${el.status}</div>
     </div>
     <div class="edit">
-      <div class="circle">&#10006;</div>
+      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
       <div class="circle">&#9985;</div>
     </div>
   </div>`;
@@ -117,16 +117,16 @@ const render = () => {
     class="iishee"
     draggable="true"
     ondragstart="drag(event)"
-    id="done${i}"
+    id="${el.id}"
   >
-    <div class="circle">&#10003;</div>
+    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
       <div class="level">${el.status}</div>
     </div>
     <div class="edit">
-      <div class="circle">&#10006;</div>
+      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
       <div class="circle">&#9985;</div>
     </div>
   </div>`;
@@ -152,5 +152,21 @@ function drop(ev) {
 }
 
 const x = (ev) => {
-  console.log(ev);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id == ev) {
+      arr.splice(i, 1);
+    }
+  }
+  document.getElementById(`${ev}`).style.display = "none";
+  render();
+};
+const select = (ev) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (ev == arr[i].id) {
+      arr.push((arr[i].status = "done"));
+      render();
+      document.getElementById(`${ev}`).style.display = "none";
+    }
+  }
+  render();
 };
