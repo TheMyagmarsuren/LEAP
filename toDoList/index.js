@@ -66,7 +66,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementById("flex").innerHTML = todo;
@@ -87,7 +87,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("inProgress")[0].innerHTML = inprogress;
@@ -107,7 +107,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("STUCK")[0].innerHTML = stuck;
@@ -127,7 +127,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("DONE")[0].innerHTML = done;
@@ -148,6 +148,7 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
+
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].id == data) {
       let changeStatus = (arr[i].status = "inprogress");
@@ -178,4 +179,30 @@ const select = (ev) => {
     }
   }
   render();
+};
+const edit = (ev) => {
+  document.getElementsByClassName("modalContainer")[0].classList.add("show");
+  let save = document.getElementsByClassName("buttonClass")[0];
+  save.innerHTML = "<button id='done'>done</button>";
+  let done = document.getElementById("done");
+
+  done.addEventListener("click", () => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].id == ev) {
+        let titleValue = document.getElementById("title-value").value;
+        let textValue = document.getElementById("textarea-value").value;
+        let statusValue = document.getElementById("status-value").value;
+        let priorityValue = document.getElementById("priority-value").value;
+        arr[i].id = ev;
+        arr[i].title = titleValue;
+        arr[i].description = textValue;
+        arr[i].status = statusValue;
+        arr[i].priority = priorityValue;
+      }
+    }
+    render();
+    document
+      .getElementsByClassName("modalContainer")[0]
+      .classList.remove("show");
+  });
 };

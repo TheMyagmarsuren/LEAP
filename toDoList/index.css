@@ -154,3 +154,8 @@ button {
 
   border-radius: 4px;
 }
+.buttonClass button {
+  gap: 5px;
+  display: flex;
+  width: 100%;
+}
