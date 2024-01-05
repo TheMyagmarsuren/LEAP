@@ -22,7 +22,7 @@ const addTodo = () => {
   let priorityValue = document.getElementById("priority-value").value;
 
   let obj = {
-    id: titleValue + Math.floor(Math.random() * (999 - 0) + 0),
+    id: titleValue + Math.ceil(Math.random() * (999 - 0) + 0),
     title: titleValue,
     description: textValue,
     status: statusValue,
@@ -69,7 +69,7 @@ const render = () => {
       <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
-    document.getElementById("flex").innerHTML = todo;
+    document.getElementById("todo").innerHTML = todo;
   });
 
   filteredInProgress.forEach((el, i) => {
@@ -87,7 +87,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("inProgress")[0].innerHTML = inprogress;
@@ -107,7 +107,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("STUCK")[0].innerHTML = stuck;
@@ -119,7 +119,7 @@ const render = () => {
     ondragstart="drag(event)"
     id="${el.id}"
   >
-    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+    <div class="doneCircle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
@@ -127,7 +127,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementsByClassName("DONE")[0].innerHTML = done;
@@ -148,17 +148,13 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-  console.log(ev.target.id);
+  ev.target.appendChild(document.getElementById(data));
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].id == data) {
       let changeStatus = (arr[i].status = `${ev.target.id}`);
-      arr.push(changeStatus);
-      console.log(ev.target);
       render();
     }
   }
-  document.getElementById(data).style.display = "none";
-  render();
 }
 
 const x = (ev) => {

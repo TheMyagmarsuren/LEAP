@@ -16,33 +16,34 @@
     <div class="container">
       <div class="boards">
         <div class="board">
-          <div
-            class="header"
-            id="todo"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
+          <div class="header">
             <div>To do</div>
             <span class="toDoCount"></span>
           </div>
-          <div id="flex" id="toDo"></div>
+          <div
+            id="todo"
+            class="gap"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
+
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
         <div class="board">
-          <div
-            id="inprogress"
-            class="header"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
+          <div class="header">
             <div>In progress</div>
             <span class="inProgressCount"></span>
           </div>
 
-          <div class="inProgress gap"></div>
+          <div
+            class="inProgress gap"
+            id="inprogress"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
 
           <div class="add-btn">
             <span>+</span>
@@ -50,17 +51,17 @@
           </div>
         </div>
         <div class="board">
-          <div
-            class="header"
-            id="stuck"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
+          <div class="header">
             <div>Stuck</div>
             <span class="stuckCount"></span>
           </div>
 
-          <div class="STUCK gap"></div>
+          <div
+            class="STUCK gap"
+            id="stuck"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
 
           <div class="add-btn">
             <span>+</span>
@@ -68,17 +69,17 @@
           </div>
         </div>
         <div class="board">
-          <div
-            class="header"
-            id="done"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          >
+          <div class="header">
             <div>Done</div>
             <span class="doneCount"></span>
           </div>
 
-          <div class="DONE gap"></div>
+          <div
+            class="DONE gap"
+            id="done"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></div>
 
           <div class="add-btn">
             <span>+</span>
