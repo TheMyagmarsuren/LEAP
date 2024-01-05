@@ -10,56 +10,75 @@
     <link rel="stylesheet" href="./index.css" />
     <meta charset="UTF-8" />
 
-    <title>🔥🔥</title>
+    <title>🔥🔥🔥</title>
   </head>
   <body>
     <div class="container">
       <div class="boards">
-        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="header">
+        <div class="board">
+          <div
+            class="header"
+            id="todo"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
             <div>To do</div>
             <span class="toDoCount"></span>
           </div>
           <div id="flex" id="toDo"></div>
-
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="header">
+        <div class="board">
+          <div
+            id="inprogress"
+            class="header"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
             <div>In progress</div>
             <span class="inProgressCount"></span>
           </div>
 
-          <div id="flex" class="inProgress"></div>
+          <div class="inProgress gap"></div>
 
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="header">
+        <div class="board">
+          <div
+            class="header"
+            id="stuck"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
             <div>Stuck</div>
             <span class="stuckCount"></span>
           </div>
 
-          <div id="flex" class="STUCK"></div>
+          <div class="STUCK gap"></div>
 
           <div class="add-btn">
             <span>+</span>
             <div class="addCard">Add card</div>
           </div>
         </div>
-        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <div class="header">
+        <div class="board">
+          <div
+            class="header"
+            id="done"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          >
             <div>Done</div>
             <span class="doneCount"></span>
           </div>
 
-          <div id="flex" class="DONE"></div>
+          <div class="DONE gap"></div>
 
           <div class="add-btn">
             <span>+</span>
@@ -92,13 +111,13 @@
               <option value="high">High</option>
             </select>
           </div>
-          <button id="submit">Add Task</button>
+          <div class="buttonClass">
+            <button id="submit">Add Task</button>
+          </div>
         </div>
       </div>
-      <div>
-        <h1>edit</h1>
-      </div>
     </div>
+
     <script src="./index.js"></script>
   </body>
 </html>

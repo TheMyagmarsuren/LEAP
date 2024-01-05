@@ -66,7 +66,7 @@ const render = () => {
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle">&#9985;</div>
+      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
     </div>
   </div>`;
     document.getElementById("flex").innerHTML = todo;
@@ -148,11 +148,13 @@ function drag(ev) {
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
+  console.log(ev.target.id);
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].id == data) {
-      let changeStatus = (arr[i].status = "inprogress");
+      let changeStatus = (arr[i].status = `${ev.target.id}`);
       arr.push(changeStatus);
       console.log(ev.target);
+      render();
     }
   }
   document.getElementById(data).style.display = "none";
@@ -179,4 +181,28 @@ const select = (ev) => {
   }
   render();
 };
-console.log("asdfasdf");
+const edit = (ev) => {
+  document.getElementsByClassName("modalContainer")[0].classList.add("show");
+  let save = document.getElementsByClassName("buttonClass")[0];
+  save.innerHTML = "<button id='save'>done</button>";
+  let done = document.getElementById("save");
+  done.addEventListener("click", () => {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].id == ev) {
+        let titleValue = document.getElementById("title-value").value;
+        let textValue = document.getElementById("textarea-value").value;
+        let statusValue = document.getElementById("status-value").value;
+        let priorityValue = document.getElementById("priority-value").value;
+        arr[i].id = ev;
+        arr[i].title = titleValue;
+        arr[i].description = textValue;
+        arr[i].status = statusValue;
+        arr[i].priority = priorityValue;
+      }
+    }
+    render();
+    document
+      .getElementsByClassName("modalContainer")[0]
+      .classList.remove("show");
+  });
+};
