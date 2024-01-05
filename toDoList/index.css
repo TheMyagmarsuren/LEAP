@@ -160,9 +160,11 @@ button {
   gap: 10px;
 }
 
-.buttonClass button {
+.buttonClass {
   gap: 5px;
   display: flex;
+}
+button {
   width: 100%;
 }
 .gap {

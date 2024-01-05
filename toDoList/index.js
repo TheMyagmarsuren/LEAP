@@ -1,6 +1,11 @@
 const show = () => {
   document.getElementsByClassName("modalContainer")[0].classList.add("show");
 };
+
+const hide = () => {
+  document.getElementsByClassName("buttonClass")[0].classList.remove("show");
+};
+
 for (let i = 0; i < 4; i++) {
   const addCardButton = document.querySelectorAll(".add-btn");
   addCardButton[i].addEventListener("click", show);
@@ -15,6 +20,7 @@ window.onclick = (event) => {
 const addTaskButton = document.getElementById("submit");
 
 const arr = [];
+
 const addTodo = () => {
   let titleValue = document.getElementById("title-value").value;
   let textValue = document.getElementById("textarea-value").value;
@@ -29,7 +35,7 @@ const addTodo = () => {
     priority: priorityValue,
   };
   arr.push(obj);
-
+  document.getElementsByClassName("modalContainer")[0].classList.remove("show");
   render();
 };
 
@@ -179,7 +185,7 @@ const select = (ev) => {
 };
 const edit = (ev) => {
   document.getElementsByClassName("modalContainer")[0].classList.add("show");
-  let save = document.getElementsByClassName("buttonClass")[0];
+  let save = document.getElementsByClassName("done")[0];
   save.innerHTML = "<button id='save'>done</button>";
   let done = document.getElementById("save");
   done.addEventListener("click", () => {
@@ -196,9 +202,10 @@ const edit = (ev) => {
         arr[i].priority = priorityValue;
       }
     }
-    render();
+
     document
       .getElementsByClassName("modalContainer")[0]
       .classList.remove("show");
+    render();
   });
 };
