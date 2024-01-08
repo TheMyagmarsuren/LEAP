@@ -502,6 +502,15 @@
         let save = document.getElementsByClassName("done")[0];
         save.innerHTML = "<button id='save'>done</button>";
         let done = document.getElementById("save");
+        document.getElementById("title-value").value = null;
+        document.getElementById("textarea-value").value = null;
+        arr.map((event) => {
+          if (event.id == ev) {
+            document.getElementById("status-value").value = `${event.status}`;
+            document.getElementById("priority-value").value = `${event.status}`;
+            console.log(event.status);
+          }
+        });
         done.addEventListener("click", () => {
           for (let i = 0; i < arr.length; i++) {
             if (arr[i].id == ev) {
@@ -517,7 +526,6 @@
               arr[i].priority = priorityValue;
             }
           }
-
           document
             .getElementsByClassName("modalContainer")[0]
             .classList.remove("show");
