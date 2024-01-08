@@ -328,7 +328,7 @@
 
       const arr = [];
 
-      const addTodo = () => {
+      const addTodo = (ev) => {
         let titleValue = document.getElementById("title-value").value;
         let textValue = document.getElementById("textarea-value").value;
         let statusValue = document.getElementById("status-value").value;
@@ -345,6 +345,10 @@
         document
           .getElementsByClassName("modalContainer")[0]
           .classList.remove("show");
+        document.getElementById("title-value").value = "";
+        document.getElementById("textarea-value").value = "";
+        document.getElementById("status-value").value = "";
+        document.getElementById("priority-value").value = "";
         render();
       };
 
@@ -370,84 +374,84 @@
           filteredDone.length;
         filteredToDo.forEach((el, i) => {
           todo += `<div
-    class="iishee"
-    draggable="true"
-    ondragstart="drag(event)"
-    id="${el.id}"
-  >
-    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
-    <div class="display-flex">
-      <div>${el.title}</div>
-      <div>${el.description}</div>
-      <div class="level">${el.priority}</div>
-    </div>
-    <div class="edit">
-      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
-    </div>
-  </div>`;
+        class="iishee"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="${el.id}"
+      >
+        <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+        <div class="display-flex">
+          <div>${el.title}</div>
+          <div>${el.description}</div>
+          <div class="level">${el.priority}</div>
+        </div>
+        <div class="edit">
+          <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
+          <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
+        </div>
+      </div>`;
           document.getElementById("todo").innerHTML = todo;
         });
 
         filteredInProgress.forEach((el, i) => {
           inprogress += `<div
-    class="iishee"
-    draggable="true"
-    ondragstart="drag(event)"
-    id="${el.id}"
-  >
-    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
-    <div class="display-flex">
-      <div>${el.title}</div>
-      <div>${el.description}</div>
-      <div class="level">${el.priority}</div>
-    </div>
-    <div class="edit">
-      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
-    </div>
-  </div>`;
+        class="iishee"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="${el.id}"
+      >
+        <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+        <div class="display-flex">
+          <div>${el.title}</div>
+          <div>${el.description}</div>
+          <div class="level">${el.priority}</div>
+        </div>
+        <div class="edit">
+          <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
+          <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
+        </div>
+      </div>`;
           document.getElementsByClassName("inProgress")[0].innerHTML =
             inprogress;
         });
         filteredStuck.forEach((el, i) => {
           stuck += `<div
-    class="iishee"
-    draggable="true"
-    ondragstart="drag(event)"
-    id="${el.id}"
-  >
-    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
-    <div class="display-flex">
-      <div>${el.title}</div>
-      <div>${el.description}</div>
-      <div class="level">${el.priority}</div>
-    </div>
-    <div class="edit">
-      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
-    </div>
-  </div>`;
+        class="iishee"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="${el.id}"
+      >
+        <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+        <div class="display-flex">
+          <div>${el.title}</div>
+          <div>${el.description}</div>
+          <div class="level">${el.priority}</div>
+        </div>
+        <div class="edit">
+          <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
+          <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
+        </div>
+      </div>`;
           document.getElementsByClassName("STUCK")[0].innerHTML = stuck;
         });
         filteredDone.forEach((el, i) => {
           done += `<div
-    class="iishee"
-    draggable="true"
-    ondragstart="drag(event)"
-    id="${el.id}"
-  >
-    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
-    <div class="display-flex">
-      <div>${el.title}</div>
-      <div>${el.description}</div>
-      <div class="level">${el.priority}</div>
-    </div>
-    <div class="edit">
-      <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
-      <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
-    </div>
-  </div>`;
+        class="iishee"
+        draggable="true"
+        ondragstart="drag(event)"
+        id="${el.id}"
+      >
+        <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+        <div class="display-flex">
+          <div>${el.title}</div>
+          <div>${el.description}</div>
+          <div class="level">${el.priority}</div>
+        </div>
+        <div class="edit">
+          <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
+          <div class="circle" onclick="edit(event.target.parentElement.parentElement.id)">&#9985;</div>
+        </div>
+      </div>`;
           document.getElementsByClassName("DONE")[0].innerHTML = done;
         });
       };
@@ -470,10 +474,19 @@
         for (let i = 0; i < arr.length; i++) {
           if (arr[i].id == data) {
             let changeStatus = (arr[i].status = `${ev.target.id}`);
+            console.log(arr);
             render();
           }
         }
       }
+      // boards.forEach((board) => {
+      //   board.addEventListener("dragover", (event) => {
+      //     const status = board.querySelector(".gap").id;
+      //     const id = event.dataTransfer.getData("text");
+      //     event.praventDefault();
+      //     data = event.dataTransfer.getData;
+      //   });
+      // });
 
       const x = (ev) => {
         for (let i = 0; i < arr.length; i++) {
@@ -538,6 +551,11 @@
           document
             .getElementsByClassName("modalContainer")[0]
             .classList.remove("show");
+          save.innerHTML = "";
+          document.getElementById("title-value").value = "";
+          document.getElementById("textarea-value").value = "";
+          document.getElementById("status-value").value = "";
+          document.getElementById("priority-value").value = "";
           render();
         });
       };
