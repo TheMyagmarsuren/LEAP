@@ -208,7 +208,7 @@
 
           <div class="add-btn">
             <span>+</span>
-            <div class="addCard">Add card</div>
+            <div class="addCard" id="toDoAdd">Add card</div>
           </div>
         </div>
         <div class="board">
@@ -379,7 +379,7 @@
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
-      <div class="level">${el.status}</div>
+      <div class="level">${el.priority}</div>
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
@@ -400,7 +400,7 @@
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
-      <div class="level">${el.status}</div>
+      <div class="level">${el.priority}</div>
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
@@ -421,7 +421,7 @@
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
-      <div class="level">${el.status}</div>
+      <div class="level">${el.priority}</div>
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
@@ -437,11 +437,11 @@
     ondragstart="drag(event)"
     id="${el.id}"
   >
-    <div class="doneCircle" onclick="select(event.target.parentElement.id)">&#10003;</div>
+    <div class="circle" onclick="select(event.target.parentElement.id)">&#10003;</div>
     <div class="display-flex">
       <div>${el.title}</div>
       <div>${el.description}</div>
-      <div class="level">${el.status}</div>
+      <div class="level">${el.priority}</div>
     </div>
     <div class="edit">
       <div class="circle"  onclick="x(event.target.parentElement.parentElement.id)">&#10006;</div>
@@ -504,10 +504,19 @@
         let done = document.getElementById("save");
         document.getElementById("title-value").value = null;
         document.getElementById("textarea-value").value = null;
+        arr.map((el, i) => {
+          if (ev == el.id) {
+            document.getElementById("status-value").value = el.status;
+            document.getElementById("priority-value").value = el.priority;
+            console.log(el.priority);
+          }
+        });
         arr.map((event) => {
           if (event.id == ev) {
             document.getElementById("status-value").value = `${event.status}`;
-            document.getElementById("priority-value").value = `${event.status}`;
+            document.getElementById(
+              "priority-value"
+            ).value = `${event.priority}`;
             console.log(event.status);
           }
         });
