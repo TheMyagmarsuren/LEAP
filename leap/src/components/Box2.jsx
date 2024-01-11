@@ -1,3 +1,19 @@
+import Image from "next/image";
+
+const styles = {
+  flex: { display: "flex", gap: 5 },
+  containerEl: {
+    display: "flex",
+    flexDirection: "column",
+    border: "2px solid black",
+    borderRadius: 8,
+    width: "fit-content",
+    padding: 16,
+    gap: 20,
+  },
+  gap: { gap: 10 },
+};
+
 const arr = [
   {
     id: 553,
@@ -313,67 +329,22 @@ const arr = [
       term: "Monthly",
     },
   },
-  {
-    id: 553,
-    uid: "8196198e-c185-412e-ac7f-8108fa6a5bcb",
-    password: "dlM8H1Dj0X",
-    first_name: "Erick",
-    last_name: "Howell",
-    username: "erick.howell",
-    email: "erick.howell@email.com",
-    avatar:
-      "https://robohash.org/numquameiuspariatur.png?size=300x300&set=set1",
-    gender: "Non-binary",
-    phone_number: "+93 (306) 614-7773 x87349",
-    social_insurance_number: "649062437",
-    date_of_birth: "1959-02-28",
-    employment: {
-      title: "IT Associate",
-      key_skill: "Self-motivated",
-    },
-    address: {
-      city: "Myleston",
-      street_name: "Ferry Terrace",
-      street_address: "787 Dane Mews",
-      zip_code: "95105",
-      state: "West Virginia",
-      country: "United States",
-      coordinates: {
-        lat: 42.441306922199544,
-        lng: 150.10440165032617,
-      },
-    },
-    credit_card: {
-      cc_number: "6771-8948-7342-6936",
-    },
-    subscription: {
-      plan: "Student",
-      status: "Active",
-      payment_method: "Cheque",
-      term: "Payment in advance",
-    },
-  },
 ];
-const cards = document.getElementsByClassName("cards")[0];
-let str = "";
-arr.forEach((el, i) => {
-  str += ` <div class="card" key={${el.uid}}>
-<div class="img">
-  <img  
-    src="${el.avatar}"
-    alt="lol"
-  />
-</div>
-<div class="padding-left-20px">
-  <div class="name"><h4>${el.first_name} ${el.last_name}</h4></div>
-  <div class="gender">
-    <div><span>${el.employment.title}</span></div>
-    <div>${el.gender}</div>
-  </div>
-  <div class="email">
-  <a hrep="lol">${el.email}</a></div>
-</div>
-</div>`;
-  console.log(str);
-});
-cards.innerHTML = str;
+const Box = () => {
+  return (
+    <div style={styles.containerEl}>
+      <div>
+        <img src="/myImage.png" />
+      </div>
+      <div style={styles.flex}>
+        <h4>firstName</h4> <h4>lastName</h4>
+      </div>
+      <div style={styles.gap}>
+        <span>employmentTitle</span> <span>gender</span>
+      </div>
+      <div>email</div>
+    </div>
+  );
+};
+console.log(Box);
+export default Box;
