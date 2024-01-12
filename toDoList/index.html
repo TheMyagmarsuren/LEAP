@@ -194,17 +194,12 @@
   <body>
     <div class="container">
       <div class="boards">
-        <div class="board">
+        <div class="board" ondrop="drop(event)" ondragover="allowDrop(event)">
           <div class="header">
             <div>To do</div>
             <span class="toDoCount"></span>
           </div>
-          <div
-            id="todo"
-            class="gap"
-            ondrop="drop(event)"
-            ondragover="allowDrop(event)"
-          ></div>
+          <div id="todo" class="gap"></div>
 
           <div class="add-btn">
             <span>+</span>

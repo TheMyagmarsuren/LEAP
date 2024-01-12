@@ -333,18 +333,24 @@ const arr = [
 const Box = () => {
   return (
     <div style={styles.containerEl}>
-      <div>
-        <img src="/myImage.png" />
-      </div>
-      <div style={styles.flex}>
-        <h4>firstName</h4> <h4>lastName</h4>
-      </div>
-      <div style={styles.gap}>
-        <span>employmentTitle</span> <span>gender</span>
-      </div>
-      <div>email</div>
+      {arr.map((el) => {
+        return (
+          <div>
+            <div>
+              <img src="/myImage.png" />
+            </div>
+            <div style={styles.flex}>
+              <h4>{el.first_name}</h4> <h4>{el.last_name}</h4>
+            </div>
+            <div style={styles.gap}>
+              <span>{el.employment.title}</span> <span>{el.gender}</span>
+            </div>
+            <div>email</div>
+          </div>
+        );
+      })}
     </div>
   );
 };
-console.log(Box);
+
 export default Box;
